@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'student/base.html' %}
+    {% block body_block %}
+        <div class="container text-center">
+            
+                <h2 style="color: #F8485E; text-align: left;" >Student Management Portal</h2>
+                <button class="btn" style="background-color: #21BF73; float: right;"><a href="/insert" class="text-white">Add New Record</a></button>
+            <br>
+            <hr>
+            <table>
+                <thead>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Email </th>
+                    <th>Contact</th>
+                    <th>Enrolled For</th>
+                </thead>
+                {%for student in students %}
+                <tr>
+                    <td>{{student.rollNo}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.phoneNo}}</td>
+                    <td>{{student.course}}</td>
+                    <td>
+                        <button class="btn btn-primary"><a href="/update/{{student.id}}" class="text-white">Update</a></button>
+                        <button class="btn" style="background-color: #FF577F;"><a href="/delete/{{student.id}}" class="text-white">Delete</a></button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br><br>
+            
+
+        </div>
+    {% endblock %}
